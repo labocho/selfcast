@@ -1,0 +1,34 @@
+= form_for([@channel, @item], html: {class: "form-horizontal", multipart: true}) do |f|
+  - if @item.errors.any?
+    %ul.alert.alert-error.validation-errors
+      - @item.errors.full_messages.each do |message|
+        %li= message
+
+  .control-group
+    = f.label :channel, class: "control-label"
+    .controls
+      = f.select :channel_id, Channel.scoped.map{|c| [c.title, c.id] }
+  .control-group
+    = f.label :content, class: "control-label"
+    .controls
+      = f.file_field :content
+  .control-group
+    = f.label :title, class: "control-label"
+    .controls
+      = f.text_field :title
+  .control-group
+    = f.label :description, class: "control-label"
+    .controls
+      = f.text_area :description
+  .control-group
+    = f.label :published_at, class: "control-label"
+    .controls
+      = f.datetime_select :published_at
+  .control-group
+    .controls
+      = f.submit class: "btn btn-primary"
+      - if @item.new_record?
+        %a.btn{href: channel_items_path} Cancel
+      - else
+        %a.btn{href: channel_item_path} Cancel
+

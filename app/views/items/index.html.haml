@@ -1,0 +1,22 @@
+%h1
+  = Item.model_name.human
+  .btn-group.pull-right
+    %a.btn{href: new_channel_item_path} Add
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th= Item.human_attribute_name :id
+      %th= Item.human_attribute_name :channel
+      %th= Item.human_attribute_name :title
+      %th= Item.human_attribute_name :description
+      %th= Item.human_attribute_name :published_at
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td
+          %a{href: channel_item_path(@channel, item)}= "##{item.id}"
+        %td= link_to @channel, channel_path(@channel)
+        %td= link_to item, channel_item_download_path(@channel, item)
+        %td= item.description
+        %td= item.published_at

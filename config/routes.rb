@@ -1,4 +1,11 @@
 Selfcast::Application.routes.draw do
+  resources :channels, path: "c" do
+    get "i/:id/download" => "items#download", as: "item_download"
+    resources :items, path: "i"
+  end
+
+  root to: "channels#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,13 @@
+%dl
+  %dt= Channel.human_attribute_name :title
+  %dd= @channel.title
+%dl
+  %dt= Channel.human_attribute_name :description
+  %dd= @channel.description
+%dl
+  %dt= Channel.human_attribute_name :image
+  %dd= @channel.image
+
+%a.btn{href: edit_channel_path} Edit
+%a.btn.btn-danger{href: channel_path(@channel), "data-method" => "delete", "data-confirm" => "Are you sure?"} Delete
+%a.btn{href: channels_path} Back

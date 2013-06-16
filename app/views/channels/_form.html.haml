@@ -1,0 +1,26 @@
+= form_for(@channel, html: {class: "form-horizontal"}) do |f|
+  - if @channel.errors.any?
+    %ul.alert.alert-error.validation-errors
+      - @channel.errors.full_messages.each do |message|
+        %li= message
+
+  .control-group
+    = f.label :title, class: "control-label"
+    .controls
+      = f.text_field :title
+  .control-group
+    = f.label :description, class: "control-label"
+    .controls
+      = f.text_area :description
+  .control-group
+    = f.label :image, class: "control-label"
+    .controls
+      = f.text_field :image
+  .control-group
+    .controls
+      = f.submit class: "btn btn-primary"
+      - if @channel.new_record?
+        %a.btn{href: channels_path} Cancel
+      - else
+        %a.btn{href: channel_path} Cancel
+

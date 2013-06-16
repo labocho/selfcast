@@ -1,0 +1,20 @@
+%h1
+  = Channel.model_name.human
+  .btn-group.pull-right
+    %a.btn{href: new_channel_path} Add
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th= Channel.human_attribute_name :id
+      %th= Channel.human_attribute_name :title
+      %th= Channel.human_attribute_name :description
+      %th= Channel.human_attribute_name :image
+  %tbody
+    - @channels.each do |channel|
+      %tr
+        %td
+          %a{href: channel_path(channel)}= "##{channel.id}"
+        %td= channel.title
+        %td= channel.description
+        %td= channel.image
