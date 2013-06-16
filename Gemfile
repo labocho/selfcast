@@ -49,7 +49,6 @@ group :development, :test do
   gem "rb-fsevent"
   gem "growl"
   gem "machinist"
-  gem "thin"
   gem "turnip"
   gem "capybara-webkit"
   gem "launchy"
@@ -59,9 +58,10 @@ group :development, :test do
   gem "simplecov-rcov", :require => false
 end
 
+gem "thin"
 gem "devise"
 gem "fog"
 gem "carrierwave"
 gem "mail-iso-2022-jp"
-gem "action_mailer_config", :git => "git://github.com/labocho/action_mailer_config.git"
+# gem "action_mailer_config", :git => "git://github.com/labocho/action_mailer_config.git"
 gem "exception_notification", "~> 2.6.1"
