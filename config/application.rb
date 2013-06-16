@@ -74,5 +74,8 @@ module Selfcast
     config.assets.version = '1.0'
 
     config.assets.paths << "#{Rails.root}/vendor/assets/images"
+
+    # Devise on Heroku
+    config.assets.initialize_on_precompile = false
   end
 end

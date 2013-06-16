@@ -1,5 +1,7 @@
 Selfcast::Application.routes.draw do
-  get "channels/:id/feed" => "channels#show", defaults: {format: "xml"}
+  devise_for :users
+
+  get "channels/:id/feed" => "channels#show", defaults: {format: "xml"}, as: "channel_feed"
   resources :channels do
     get "items/:id/download" => "items#download", as: "item_download"
     resources :items

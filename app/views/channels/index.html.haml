@@ -10,6 +10,7 @@
       %th= Channel.human_attribute_name :title
       %th= Channel.human_attribute_name :description
       %th= Channel.human_attribute_name :image
+      %th= Channel.human_attribute_name :feed
   %tbody
     - @channels.each do |channel|
       %tr
@@ -18,3 +19,4 @@
         %td= channel.title
         %td= channel.description
         %td= channel.image
+        %td= link_to "Feed", channel_feed_url(channel, auth_token: current_user.authentication_token)

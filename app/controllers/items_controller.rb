@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(params[:item])
+    @item = @channel.items.build(params[:item])
 
     respond_to do |format|
       if @item.save
