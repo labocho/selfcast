@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130616133313) do
 
   create_table "channels", :force => true do |t|
-    t.string   "title"
+    t.string   "title",       :null => false
     t.text     "description"
     t.string   "image"
     t.datetime "created_at",  :null => false
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(:version => 20130616133313) do
   end
 
   create_table "items", :force => true do |t|
-    t.integer  "channel_id"
-    t.string   "title"
+    t.integer  "channel_id",   :null => false
+    t.string   "title",        :null => false
     t.text     "description"
-    t.string   "content"
-    t.datetime "published_at"
+    t.string   "content",      :null => false
+    t.datetime "published_at", :null => false
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

@@ -1,7 +1,8 @@
 Selfcast::Application.routes.draw do
-  resources :channels, path: "c" do
-    get "i/:id/download" => "items#download", as: "item_download"
-    resources :items, path: "i"
+  get "channels/:id/feed" => "channels#show", defaults: {format: "xml"}
+  resources :channels do
+    get "items/:id/download" => "items#download", as: "item_download"
+    resources :items
   end
 
   root to: "channels#index"

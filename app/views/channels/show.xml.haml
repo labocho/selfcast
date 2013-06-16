@@ -1,0 +1,15 @@
+!!! xml
+%rss(version="2.0")
+  %channel
+    %title= @channel.title
+    %link= channel_url
+    %description= @channel.description
+    - @channel.items.recent.each do |item|
+      %item
+        %title= item.title
+        / %enclosure{url: channel_item_download_url(@channel, item), length: item.content.size, type: "audio/mpeg"}/
+        %enclosure{url: item.content.url, length: item.content.size, type: "audio/mpeg"}/
+        %guid= channel_item_url(@channel, item)
+        %description= item.description
+        %pubDate= item.published_at.rfc2822
+

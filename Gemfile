@@ -41,6 +41,7 @@ gem "haml"
 gem "kaminari"
 gem "rails-i18n"
 group :development, :test do
+  gem 'dotenv-rails'
   gem "debugger"
   gem "rspec-rails"
   gem "guard-rspec"
@@ -59,6 +60,7 @@ group :development, :test do
 end
 
 gem "devise"
+gem "fog"
 gem "carrierwave"
 gem "mail-iso-2022-jp"
 gem "action_mailer_config", :git => "git://github.com/labocho/action_mailer_config.git"
