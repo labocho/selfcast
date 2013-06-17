@@ -41,6 +41,6 @@ class Item < ActiveRecord::Base
       secret_access_key: content.fog_credentials[:aws_secret_access_key]
     )
     bucket = s3.buckets[content.fog_directory]
-    bucket.presigned_post(key: content.path)
+    bucket.presigned_post(key: "#{content.store_dir}/#{self[:content]}")
   end
 end
