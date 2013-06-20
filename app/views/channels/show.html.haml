@@ -8,6 +8,8 @@
   %dt= Channel.human_attribute_name :image
   %dd= @channel.image
 
+%a.btn{href: channel_feed_path} Feed
+%a.btn{href: channel_items_path(@channel)} Items
 %a.btn{href: edit_channel_path} Edit
 %a.btn.btn-danger{href: channel_path(@channel), "data-method" => "delete", "data-confirm" => "Are you sure?"} Delete
 %a.btn{href: channels_path} Back
