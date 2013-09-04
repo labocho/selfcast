@@ -1,6 +1,6 @@
 require "aws-sdk"
 class Item < ActiveRecord::Base
-  RECENT = 20
+  RECENT = 100
 
   belongs_to :channel, touch: true
   scope :recent, -> { order('"published_at" DESC').limit(RECENT) }
