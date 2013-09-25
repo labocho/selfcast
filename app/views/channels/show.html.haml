@@ -6,7 +6,9 @@
   %dd= @channel.description
 %dl
   %dt= Channel.human_attribute_name :image
-  %dd= @channel.image
+  %dd
+    - if @channel.image?
+      %img{src: @channel.image.url, style: "max-width: 300px;"}
 
 %a.btn{href: channel_feed_path} Feed
 %a.btn{href: channel_items_path(@channel)} Items
