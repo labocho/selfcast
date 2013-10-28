@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = @channel.items
+    @items = @items.search_by_title(params[:title]) if params[:title]
 
     respond_to do |format|
       format.html # index.html.erb
