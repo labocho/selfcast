@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   def index
     @items = @channel.items
     @items = @items.search_by_title(params[:title]) if params[:title]
+    @items = @items.order_by_published_at_desc
 
     respond_to do |format|
       format.html # index.html.erb

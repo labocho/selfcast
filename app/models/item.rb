@@ -22,6 +22,10 @@ class Item < ActiveRecord::Base
     where("title LIKE ? ESCAPE '!'", "%#{escaped}%")
   end
 
+  def self.order_by_published_at_desc
+    order("published_at DESC")
+  end
+
   def to_s
     title
   end
