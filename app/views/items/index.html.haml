@@ -9,7 +9,6 @@
       %th= Item.human_attribute_name :id
       %th= Item.human_attribute_name :channel
       %th= Item.human_attribute_name :title
-      %th= Item.human_attribute_name :description
       %th= Item.human_attribute_name :published_at
   %tbody
     - @items.each do |item|
@@ -21,6 +20,7 @@
           = link_to item, channel_item_download_path(@channel, item)
           %audio.player{preload: "none", controls: true,  src: item.content.url}
 
-        %td= item.description
         %td= item.published_at
+      %tr
+        %td{colspan: 4}= br item.description
 
