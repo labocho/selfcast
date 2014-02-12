@@ -42,7 +42,7 @@ gem "kaminari"
 gem "rails-i18n"
 group :development, :test do
   gem 'dotenv-rails'
-  gem "debugger"
+  gem "byebug"
   gem "rspec-rails"
   gem "guard-rspec"
   gem "guard-spork"
@@ -66,3 +66,4 @@ gem "aws-sdk"
 gem "mail-iso-2022-jp"
 # gem "action_mailer_config", :git => "git://github.com/labocho/action_mailer_config.git"
 gem "exception_notification", "~> 2.6.1"
+gem "mediaelement_rails"

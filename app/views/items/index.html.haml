@@ -17,6 +17,10 @@
         %td
           %a{href: channel_item_path(@channel, item)}= "##{item.id}"
         %td= link_to @channel, channel_path(@channel)
-        %td= link_to item, channel_item_download_path(@channel, item)
+        %td
+          = link_to item, channel_item_download_path(@channel, item)
+          %audio.player{preload: "none", controls: true,  src: item.content.url}
+
         %td= item.description
         %td= item.published_at
+
