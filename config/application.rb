@@ -15,6 +15,33 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+require "active_record/connection_adapters/postgresql_adapter"
+module ActiveRecord
+  module ConnectionAdapters
+    class PostgreSQLAdapter
+      def configure_connection
+        if @config[:encoding]
+          @connection.set_client_encoding(@config[:encoding])
+        end
+        self.client_min_messages = @config[:min_messages] if @config[:min_messages]
+        self.schema_search_path = @config[:schema_search_path] || @config[:schema_order]
+
+        # Use standard-conforming strings if available so we don't have to do the E'...' dance.
+        set_standard_conforming_strings
+
+        # If using Active Record's time zone support configure the connection to return
+        # TIMESTAMP WITH ZONE types in UTC.
+        if ActiveRecord::Base.default_timezone == :utc
+          # execute("SET time zone 'UTC'", 'SCHEMA')
+          execute("SET time zone 'UTC+0'", 'SCHEMA')
+        elsif @local_tz
+          execute("SET time zone '#{@local_tz}'", 'SCHEMA')
+        end
+      end
+    end
+  end
+end
+
 module Selfcast
   class Application < Rails::Application
     config.generators do |g|
@@ -24,7 +51,7 @@ module Selfcast
       g.stylesheets false
       g.javascripts false
     end
-    
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
