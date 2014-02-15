@@ -1,14 +1,7 @@
-%dl
-  %dt= Channel.human_attribute_name :title
-  %dd= @channel.title
-%dl
-  %dt= Channel.human_attribute_name :description
-  %dd= @channel.description
-%dl
-  %dt= Channel.human_attribute_name :image
-  %dd
-    - if @channel.image?
-      %img{src: @channel.image.url, style: "max-width: 300px;"}
+%h1= @channel.title
+%p= @channel.description
+- if @channel.image?
+  %img{src: @channel.image.url, style: "max-width: 300px;"}
 
 %a.btn{href: channel_feed_path} Feed
 %a.btn{href: channel_items_path(@channel)} Items
