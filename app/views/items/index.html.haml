@@ -1,16 +1,13 @@
 %h1
-  = Item.model_name.human
-  .btn-group.pull-right
-    %a.btn{href: new_channel_item_path} Add
+  = @channel.title
 
 - @items.each do |item|
   .item
-    %h2
-      %a{href: channel_item_path(@channel, item)}= item.title
+    %h2= item.title
     %audio.player{preload: "none", controls: true,  src: item.content.url}
-    %ul
-      %li= link_to t("download"), channel_item_download_path(@channel, item)
-      %li= l item.published_at
+    %ul.item-metadata
+      %li= link_to(icon("download") + t("download"), channel_item_download_path(@channel, item))
+      %li= icon("time") + item.published_at.strftime("%Y年%m月%d日 %H:%M")
     %p= br item.description
 
 = paginate @items

@@ -1,0 +1,17 @@
+.item {
+  padding: 1em 2em 2em;
+  margin-bottom: 2em;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.item-metadata {
+  list-style-type: none;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.item-metadata > li {
+  display: inline-block;
+  margin-right: 0.5em;
+}

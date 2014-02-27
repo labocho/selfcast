@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
     @items = @channel.items
     @items = @items.search_by_title(params[:title]) if params[:title]
     @items = @items.order_by_published_at_desc
-    @items = @items.page(params[:page]).per(20)
+    @items = @items.page(params[:page]).per(10)
 
     respond_to do |format|
       format.html
