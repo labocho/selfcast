@@ -50,7 +50,7 @@ class Item < ActiveRecord::Base
 
   def summary
     return unless description
-    description.lines[0..1].map(&:strip).join(" ").strip
+    description.lines.to_a[0..1].map(&:strip).join(" ").strip
   end
 
   def presigned_post
