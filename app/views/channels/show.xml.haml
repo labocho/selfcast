@@ -9,11 +9,15 @@
     - @channel.items.recent.each do |item|
       %item
         %title= item.title
+        %itunes:subtitle= item.subtitle
+        %itunes:summary= item.summary
         / - content_length = item.content.size rescue nil
         / - logger.error "#{item.title} (id: #{item.id}) has no content length" unless content_length
         / %enclosure{url: item.content.url, length: (item.content.size rescue nil), type: "audio/mpeg"}/
         %enclosure{url: item.content.url, type: "audio/mpeg"}/
         %guid= channel_item_url(@channel, item)
-        %description= item.description
+        %description
+          :cdata
+            #{br(item.description)}
         %pubDate= item.published_at.rfc2822
 

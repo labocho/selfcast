@@ -3,7 +3,7 @@ module ApplicationHelper
     return unless text
     text.split("\n").map{|line|
       h(line)
-    }.join("<br>").html_safe
+    }.join("<br/>").html_safe
   end
 
   def icon(name, size = nil)

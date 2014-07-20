@@ -44,6 +44,15 @@ class Item < ActiveRecord::Base
     )
   end
 
+  def subtitle
+    summary
+  end
+
+  def summary
+    return unless description
+    description.lines[0..1].map(&:strip).join(" ").strip
+  end
+
   def presigned_post
     s3 = AWS::S3.new(
       access_key_id: content.fog_credentials[:aws_access_key_id],
