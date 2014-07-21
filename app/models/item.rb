@@ -45,12 +45,12 @@ class Item < ActiveRecord::Base
   end
 
   def subtitle
-    summary
+    return unless description
+    description.lines.to_a[0..1].map(&:strip).join(" ").strip
   end
 
   def summary
-    return unless description
-    description.lines.to_a[0..1].map(&:strip).join(" ").strip
+    description
   end
 
   def presigned_post
