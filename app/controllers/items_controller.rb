@@ -1,10 +1,12 @@
 class ItemsController < ApplicationController
   before_filter :find_channel
+  before_filter :build_query, only: :index
+
   # GET /items
   # GET /items.json
   def index
     @items = @channel.items
-    @items = @items.search_by_title(params[:title]) if params[:title]
+    @items = @query.search(@items)
     @items = @items.order_by_published_at_desc
     @items = @items.page(params[:page]).per(10)
 
@@ -93,5 +95,9 @@ class ItemsController < ApplicationController
   private
   def find_channel
     @channel = Channel.where(id: params[:channel_id]).first
+  end
+
+  def build_query
+    @query = ItemQuery.new(params[:item_query])
   end
 end

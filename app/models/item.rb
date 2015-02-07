@@ -17,11 +17,6 @@ class Item < ActiveRecord::Base
     self.published_at ||= Time.now
   end
 
-  def self.search_by_title(q)
-    escaped = q.gsub(/\!/, "!!").gsub(/%/, "!%").gsub(/_/, "!_")
-    where("title LIKE ? ESCAPE '!'", "%#{escaped}%")
-  end
-
   def self.order_by_published_at_desc
     order("published_at DESC")
   end
