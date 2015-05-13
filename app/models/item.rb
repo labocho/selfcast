@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
   belongs_to :channel, touch: true
   scope :recent, -> { order('"published_at" DESC').limit(RECENT) }
 
-  attr_accessible :channel, :channel_id, :description, :published_at, :title, :content_filename
+  # attr_accessible :channel, :channel_id, :description, :published_at, :title, :content_filename
   mount_uploader :content, ItemUploader
 
   validates_presence_of :content
