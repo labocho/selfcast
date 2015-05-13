@@ -69,3 +69,6 @@ gem "mail-iso-2022-jp"
 # gem "action_mailer_config", :git => "git://github.com/labocho/action_mailer_config.git"
 gem "exception_notification", "~> 2.6.1"
 gem "mediaelement_rails"
+gem "spring", group: :development
+gem "web-console", "~> 2.0"
+
