@@ -111,7 +111,7 @@ GEM
     exception_notification (2.6.1)
       actionmailer (>= 3.0.4)
     excon (0.45.3)
-    execjs (2.5.2)
+    execjs (2.6.0)
     ffi (1.8.1)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
@@ -276,7 +276,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.2)
     minitest (5.6.1)
-    multi_json (1.11.0)
+    multi_json (1.11.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -382,9 +382,9 @@ GEM
       rspec (~> 2.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.0.1)
+    uglifier (2.7.1)
       execjs (>= 0.3.0)
-      multi_json (~> 1.0, >= 1.0.2)
+      json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.1.2)
@@ -435,5 +435,5 @@ DEPENDENCIES
   thin
   turnip
   twitter-bootstrap-rails!
-  uglifier (>= 1.0.3)
+  uglifier
   web-console (~> 2.0)
