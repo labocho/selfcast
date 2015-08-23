@@ -72,3 +72,4 @@ gem "mediaelement_rails"
 gem "spring", group: :development
 gem "web-console", "~> 2.0"
 gem "lograge"
+gem "rails_12factor", group: :profuction
