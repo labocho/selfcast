@@ -18,4 +18,12 @@ class ApplicationController < ActionController::Base
       sign_in user, store: false
     end
   end
+
+  def append_info_to_payload(payload)
+    super
+    payload[:session_id] = session.id
+    payload[:user_id] = current_user.try(:id)
+    payload[:remote_ip] = request.remote_ip
+    payload[:user_agent] = request.user_agent
+  end
 end

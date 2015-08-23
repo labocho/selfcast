@@ -30,5 +30,40 @@ module Selfcast
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.lograge.enabled = true
+    config.lograge.formatter = Lograge::Formatters::Json.new
+    config.lograge.custom_options = -> (event) {
+      params = event.payload[:params].reject do |k|
+        ['controller', 'action'].include? k
+      end
+
+      params = filter_uploaded_file(params)
+
+      { "session_id" => event.payload[:session_id],
+        "remote_ip" => event.payload[:remote_ip],
+        "user_agent" => event.payload[:user_agent],
+        "user_id" => event.payload[:user_id],
+        "params" => params,
+        "time" => event.time.to_i,
+      }
+    }
+
+    # アップロードされたファイルの内容をログに出力しないようにする
+    def filter_uploaded_file(obj)
+      case obj
+      when Array
+        obj.map{|e| filter_uploaded_file(e) }
+      when Hash
+        obj.inject({}) do |hash, (k, v)|
+          hash[k] = filter_uploaded_file(v)
+          hash
+        end
+      when ActionDispatch::Http::UploadedFile
+        obj.inspect
+      else
+        obj
+      end
+    end
   end
 end
