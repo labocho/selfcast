@@ -8,7 +8,7 @@ class Item < ActiveRecord::Base
   # attr_accessible :channel, :channel_id, :description, :published_at, :title, :content_filename
   mount_uploader :content, ItemUploader
 
-  # validates_presence_of :content
+  validates_presence_of :content
 
   before_save do
     if content?
