@@ -30,12 +30,9 @@ class Item < ActiveRecord::Base
   end
 
   def as_json(options = {})
-    post = presigned_post
+    url = presigned_url
     attributes.merge(
-      presigned_post: {
-        url: post.url.to_s,
-        fields: post.fields
-      }
+      presigned_url: url.to_s
     )
   end
 
@@ -48,12 +45,13 @@ class Item < ActiveRecord::Base
     description
   end
 
-  def presigned_post
-    s3 = AWS::S3.new(
+  def presigned_url
+    s3 = Aws::S3::Resource.new(
+      region: content.fog_credentials[:region],
       access_key_id: content.fog_credentials[:aws_access_key_id],
       secret_access_key: content.fog_credentials[:aws_secret_access_key]
     )
-    bucket = s3.buckets[content.fog_directory]
-    bucket.presigned_post(key: "#{content.store_dir}/#{self[:content]}")
+    obj = s3.bucket(content.fog_directory).object("#{content.store_dir}/#{self[:content]}")
+    obj.presigned_url(:put)
   end
 end
