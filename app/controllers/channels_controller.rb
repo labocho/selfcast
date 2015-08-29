@@ -41,7 +41,7 @@ class ChannelsController < ApplicationController
   # POST /channels
   # POST /channels.json
   def create
-    @channel = Channel.new(params[:channel])
+    @channel = Channel.new(channel_params)
 
     respond_to do |format|
       if @channel.save
@@ -60,7 +60,7 @@ class ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
 
     respond_to do |format|
-      if @channel.update_attributes(params[:channel])
+      if @channel.update_attributes(channel_params)
         format.html { redirect_to @channel, notice: 'Channel was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,5 +80,10 @@ class ChannelsController < ApplicationController
       format.html { redirect_to channels_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def channel_params
+    params.require(:channel).permit(:title, :description, :image)
   end
 end

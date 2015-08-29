@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = @channel.items.build(params[:item])
+    @item = @channel.items.build(item_params)
 
     respond_to do |format|
       if @item.save
@@ -70,7 +70,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     respond_to do |format|
-      if @item.update_attributes(params[:item])
+      if @item.update_attributes(item_params)
         format.html { redirect_to channel_item_path(@channel, @item), notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
@@ -99,5 +99,9 @@ class ItemsController < ApplicationController
 
   def build_query
     @query = ItemQuery.new(params[:item_query])
+  end
+
+  def item_params
+    params.require(:item).permit(:title, :description, :content, :published_at)
   end
 end
