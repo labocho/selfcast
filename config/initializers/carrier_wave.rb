@@ -9,6 +9,9 @@ CarrierWave.configure do |config|
   }
   config.fog_directory  = ENV["S3_BUCKET"]                     # required
   config.fog_public     = false                                   # optional, defaults to true
-  config.fog_attributes = {'Cache-Control'=>"max-age=#{1.week.to_i}"}  # optional, defaults to {}
+  config.fog_attributes = {
+    'Cache-Control'=>"max-age=#{1.week.to_i}",
+    'x-amz-storage-class' => 'STANDARD_IA',
+  }
   config.fog_authenticated_url_expiration = 1.week.to_i
 end
