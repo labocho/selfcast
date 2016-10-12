@@ -1,9 +1,11 @@
-= form_for @query, url: channel_items_path(@channel), method: :get do |f|
-  .input-group
-    = f.text_field :keywords, class: "form-control"
-    %span.input-group-btn
-      %button.btn.btn-default{type: "submit"}
-        = icon("search")
+= content_for :search_form do
+  = form_for(@query, url: channel_items_path(@channel), method: :get, html: {class: "navbar-form navbar-right", style: "max-width: 200px;"}) do |f|
+    .form-group
+      .input-group
+        = f.text_field :keywords, class: "form-control"
+        %span.input-group-btn
+          %button.btn.btn-default{type: "submit"}
+            = icon("search")
 
 %h1
   = @channel.title
