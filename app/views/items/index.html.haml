@@ -10,7 +10,7 @@
 
 - @items.each do |item|
   .item
-    %h2= item.title
+    %h2.item-title= item.title
     %audio.player{preload: "none", controls: true,  src: item.content.url}
     %ul.item-metadata
       %li= link_to(icon("download") + t("download"), channel_item_download_path(@channel, item))

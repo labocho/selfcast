@@ -1,8 +1,13 @@
 .item {
-  padding: 1em 2em 2em;
-  margin-bottom: 2em;
-  border-radius: 4px;
+  padding: 1em;
+  border-bottom: 1px solid #cccccc;
   background: #fff;
+}
+
+.item-title {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin: 0.5em 0 1em;
 }
 
 .item-metadata {
