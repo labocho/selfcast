@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :reject_overcast
   before_filter :authenticate_user_from_token!
   before_filter :authenticate_user!
 
@@ -17,12 +16,6 @@ class ApplicationController < ActionController::Base
       # for every request. If you want the token to work as a
       # sign in token, you can simply remove store: false.
       sign_in user, store: false
-    end
-  end
-
-  def reject_overcast
-    if request.user_agent =~ /^Overcast\//
-      render text: "403 Forbidden", status: 403
     end
   end
 
