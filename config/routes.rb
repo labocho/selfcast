@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get "channels/:id/feed" => "channels#show", defaults: {format: "xml"}, as: "channel_feed"
-  get "channels/:channel_id" => "items#index"
   resources :channels, except: [:show] do
     get "items/:id/download" => "items#download", as: "item_download"
     resources :items
   end
+  get "channels/:id/feed" => "channels#show", defaults: {format: "xml"}, as: "channel_feed"
+  get "channels/:channel_id" => "items#index"
 
   root to: "channels#index"
 
