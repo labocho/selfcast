@@ -1,4 +1,4 @@
-class Channel < ActiveRecord::Base
+class Channel < ApplicationRecord
   # attr_accessible :description, :image, :title
   has_many :items
 

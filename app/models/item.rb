@@ -1,5 +1,5 @@
 require "aws-sdk"
-class Item < ActiveRecord::Base
+class Item < ApplicationRecord
   RECENT = 100
 
   belongs_to :channel, touch: true

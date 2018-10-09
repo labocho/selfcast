@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby "2.1.5"
+ruby "2.5.1"
 
-gem 'rails', '4.2.10'
+gem 'rails', '~> 5.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -53,6 +53,7 @@ group :development, :test do
   gem "byebug"
   gem "rspec-rails"
   gem "rspec-activemodel-mocks" # to use stub_model
+  gem "rails-controller-testing"
   gem "machinist"
   gem "turnip"
   gem "capybara-webkit", "~> 1.15.1"

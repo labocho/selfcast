@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 
 describe "channels/new" do
   before(:each) do

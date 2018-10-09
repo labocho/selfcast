@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 
 describe "Channels" do
   describe "GET /channels" do
