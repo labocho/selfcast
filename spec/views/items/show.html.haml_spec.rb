@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe "items/show" do
   before(:each) do
+    @channel = Channel.create!(title: "new channel")
     @item = assign(:item, stub_model(Item,
-      :channel => nil,
+      :channel => @channel,
       :title => "Title",
       :description => "MyText"
     ))

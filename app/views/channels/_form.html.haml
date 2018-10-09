@@ -22,5 +22,5 @@
       - if @channel.new_record?
         %a.btn{href: channels_path} Cancel
       - else
-        %a.btn{href: channel_path} Cancel
+        %a.btn{href: channel_path(@channel)} Cancel
 

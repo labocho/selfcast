@@ -4,31 +4,31 @@ describe ItemsController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/items").should route_to("items#index")
+      get("/channels/1/items").should route_to("items#index", channel_id: "1")
     end
 
     it "routes to #new" do
-      get("/items/new").should route_to("items#new")
+      get("/channels/1/items/new").should route_to("items#new", channel_id: "1")
     end
 
     it "routes to #show" do
-      get("/items/1").should route_to("items#show", :id => "1")
+      get("/channels/1/items/2").should route_to("items#show", channel_id: "1", id: "2")
     end
 
     it "routes to #edit" do
-      get("/items/1/edit").should route_to("items#edit", :id => "1")
+      get("/channels/1/items/2/edit").should route_to("items#edit", channel_id: "1", id: "2")
     end
 
     it "routes to #create" do
-      post("/items").should route_to("items#create")
+      post("/channels/1/items").should route_to("items#create", channel_id: "1")
     end
 
     it "routes to #update" do
-      put("/items/1").should route_to("items#update", :id => "1")
+      put("/channels/1/items/2").should route_to("items#update", channel_id: "1", id: "2")
     end
 
     it "routes to #destroy" do
-      delete("/items/1").should route_to("items#destroy", :id => "1")
+      delete("/channels/1/items/2").should route_to("items#destroy", channel_id: "1", id: "2")
     end
 
   end

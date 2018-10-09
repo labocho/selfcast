@@ -16,9 +16,7 @@ SimpleCov.start do
   add_filter "/vendor/"
 end
 
-require 'spork'
 
-Spork.prefork do
   ENV["RAILS_ENV"] = "test"
   require File.expand_path("../../config/environment.rb",  __FILE__)
   require "rspec/rails"
@@ -27,11 +25,8 @@ Spork.prefork do
   Rails.backtrace_cleaner.remove_silencers!
 
   # Turnip の設定
-  require "turnip"
-  require "turnip/capybara"
   require "capybara-webkit"
   require "database_cleaner"
-  Turnip.type = :request
   Capybara.javascript_driver = :webkit
   DatabaseCleaner.strategy = :truncation
 
@@ -61,13 +56,14 @@ Spork.prefork do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"
-  end
-end
 
-Spork.each_run do
-  if Spork.using_spork?
-    Rails.application.reloaders.each{|reloader| reloader.execute_if_updated }
-    # クラス定義とともに blueprint も消えてしまうのでリロード
-    load "#{File.dirname(__FILE__)}/support/blueprints.rb"
+    config.expect_with :rspec do |expectations|
+      expectations.syntax = [:should, :expect]
+    end
+
+    config.mock_with :rspec do |mocks|
+      mocks.syntax = [:should, :expect]
+    end
+
+    config.infer_spec_type_from_file_location!
   end
-end

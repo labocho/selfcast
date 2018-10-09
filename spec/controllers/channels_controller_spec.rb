@@ -19,7 +19,6 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe ChannelsController do
-
   # This should return the minimal set of attributes required to create a valid
   # Channel. As you add validations to Channel, be sure to
   # adjust the attributes here as well.
@@ -29,6 +28,10 @@ describe ChannelsController do
   # in order to pass any filters (e.g. authentication) defined in
   # ChannelsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+
+  before do
+    sign_in User.create!(email: "test@example.com", password: "opensesame")
+  end
 
   describe "GET index" do
     it "assigns all channels as @channels" do

@@ -11,10 +11,6 @@ describe ChannelsController do
       get("/channels/new").should route_to("channels#new")
     end
 
-    it "routes to #show" do
-      get("/channels/1").should route_to("channels#show", :id => "1")
-    end
-
     it "routes to #edit" do
       get("/channels/1/edit").should route_to("channels#edit", :id => "1")
     end

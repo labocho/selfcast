@@ -11,6 +11,6 @@
   %dt= Item.human_attribute_name :published_at
   %dd= @item.published_at
 
-%a.btn{href: edit_channel_item_path} Edit
-%a.btn.btn-danger{href: channel_item_path, "data-method" => "delete", "data-confirm" => "Are you sure?"} Delete
-%a.btn{href: channel_items_path} Back
+%a.btn{href: edit_channel_item_path(@channel, @item)} Edit
+%a.btn.btn-danger{href: channel_item_path(@channel, @item), "data-method" => "delete", "data-confirm" => "Are you sure?"} Delete
+%a.btn{href: channel_items_path(@channel)} Back

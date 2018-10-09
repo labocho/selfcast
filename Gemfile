@@ -46,10 +46,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem "byebug"
   gem "rspec-rails"
-  gem "guard-rspec"
-  gem "guard-spork"
-  gem "rb-fsevent"
-  gem "growl"
+  gem "rspec-activemodel-mocks" # to use stub_model
   gem "machinist"
   gem "turnip"
   gem "capybara-webkit", "~> 1.15.1"

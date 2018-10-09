@@ -16,7 +16,7 @@
     %audio.player{preload: "none", controls: true,  src: item.content.url}
     %ul.item-metadata
       %li= link_to(icon("download") + t("download"), channel_item_download_path(@channel, item))
-      %li= icon("time") + item.published_at.strftime("%Y年%m月%d日 %H:%M")
+      %li= icon("time") + item.published_at.strftime("%Y年%m月%d日 %H:%M") if item.published_at
       %li= link_to(icon("pencil") + "Edit", edit_channel_item_path(@channel, item))
       %li= link_to(icon("trash") + "delete", channel_item_path(@channel, item), method: :delete, data: {confirm: "Are you sure?"})
     %p= br item.description
