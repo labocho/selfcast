@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 ruby "2.1.5"
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.10'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+gem 'pg', '< 1.0.0'
 
 
 # Gems used only for assets and not required
@@ -42,6 +42,12 @@ gem "twitter-bootstrap-rails", git: "https://github.com/seyhunak/twitter-bootstr
 gem "haml"
 gem "kaminari"
 gem "rails-i18n"
+
+group :development do
+  gem "spring"
+  gem "web-console", "~> 2.0"
+end
+
 group :development, :test do
   gem 'dotenv-rails'
   gem "byebug"
@@ -66,7 +72,5 @@ gem "mail-iso-2022-jp"
 # gem "action_mailer_config", :git => "git://github.com/labocho/action_mailer_config.git"
 gem "exception_notification", "~> 2.6.1"
 gem "mediaelement_rails"
-gem "spring", group: :development
-gem "web-console", "~> 2.0"
 gem "lograge"
 gem "rails_serve_static_assets", group: :production
