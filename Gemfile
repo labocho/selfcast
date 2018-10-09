@@ -52,7 +52,7 @@ group :development, :test do
   gem "growl"
   gem "machinist"
   gem "turnip"
-  gem "capybara-webkit"
+  gem "capybara-webkit", "~> 1.15.1"
   gem "launchy"
   gem "database_cleaner"
   gem "ci_reporter"
