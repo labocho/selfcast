@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_filter :find_channel
-  before_filter :build_query, only: :index
+  before_action :find_channel
+  before_action :build_query, only: :index
 
   # GET /items
   # GET /items.json

@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :reject_overcast
-  before_filter :authenticate_user_from_token!
-  before_filter :authenticate_user!
+  before_action :reject_overcast
+  before_action :authenticate_user_from_token!
+  before_action :authenticate_user!
 
   # For this example, we are simply using token authentication
   # via parameters. However, anyone could use Rails's token
