@@ -1,0 +1,88 @@
+AllCops:
+  Exclude:
+    - bin/*
+    - config.ru
+    - config/boot.rb
+    - db/schema.rb
+    - lib/templates/**/*.rb
+    - lib/generators/**/*.rb
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: false
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: false
+
+Layout/SpaceInLambdaLiteral:
+  Enabled: false
+
+Layout/SpaceInsideBlockBraces:
+  Enabled: false
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+
+Performance/RegexpMatch:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%w": "()"
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+

@@ -4,6 +4,6 @@ RSpec.configure do |config|
       def assign(name, obj)
         instance_variable_set("@#{name}", obj)
       end
-    end
+    end,
   )
 end

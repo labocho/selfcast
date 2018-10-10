@@ -2,7 +2,6 @@ require "spec_helper"
 
 describe ItemsController do
   describe "routing" do
-
     it "routes to #index" do
       get("/channels/1/items").should route_to("items#index", channel_id: "1")
     end
@@ -30,6 +29,5 @@ describe ItemsController do
     it "routes to #destroy" do
       delete("/channels/1/items/2").should route_to("items#destroy", channel_id: "1", id: "2")
     end
-
   end
 end

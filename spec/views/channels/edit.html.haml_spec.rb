@@ -3,11 +3,15 @@ require "rails_helper"
 describe "channels/edit" do
   before(:each) do
     allow(view).to receive(:current_user).and_return(User.create!(email: "test@example.com", password: "opensesame"))
-    @channel = assign(:channel, stub_model(Channel,
-      :title => "MyString",
-      :description => "MyText",
-      :image => "MyString"
-    ))
+    @channel = assign(
+      :channel,
+      stub_model(
+        Channel,
+        title: "MyString",
+        description: "MyText",
+        image: "MyString",
+      ),
+    )
   end
 
   it "renders the edit channel form" do

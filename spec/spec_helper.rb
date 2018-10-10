@@ -45,11 +45,11 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
   config.expect_with :rspec do |expectations|
-    expectations.syntax = [:should, :expect]
+    expectations.syntax = %i[should expect]
   end
 
   config.mock_with :rspec do |mocks|
-    mocks.syntax = [:should, :expect]
+    mocks.syntax = %i[should expect]
   end
 
 # The settings below are suggested to provide a good initial experience

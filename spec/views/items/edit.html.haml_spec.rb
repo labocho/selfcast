@@ -3,11 +3,15 @@ require "rails_helper"
 describe "items/edit" do
   before(:each) do
     @channel = Channel.create!(title: "new channel")
-    @item = assign(:item, stub_model(Item,
-      :channel => @channel,
-      :title => "MyString",
-      :description => "MyText"
-    ))
+    @item = assign(
+      :item,
+      stub_model(
+        Item,
+        channel: @channel,
+        title: "MyString",
+        description: "MyText",
+      ),
+    )
   end
 
   it "renders the edit item form" do

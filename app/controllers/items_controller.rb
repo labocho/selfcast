@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to channel_item_path(@channel, @item), notice: 'Item was successfully created.' }
+        format.html { redirect_to channel_item_path(@channel, @item), notice: "Item was successfully created." }
         format.json { render json: @item, status: :created, location: channel_item_path(@channel, @item) }
       else
         format.html { render action: "new" }
@@ -71,7 +71,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.update_attributes(item_params)
-        format.html { redirect_to channel_item_path(@channel, @item), notice: 'Item was successfully updated.' }
+        format.html { redirect_to channel_item_path(@channel, @item), notice: "Item was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

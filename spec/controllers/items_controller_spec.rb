@@ -19,7 +19,6 @@ require "rails_helper"
 # that an instance is receiving a specific message.
 
 describe ItemsController do
-
   # This should return the minimal set of attributes required to create a valid
   # Item. As you add validations to Item, be sure to
   # adjust the attributes here as well.
@@ -162,5 +161,4 @@ describe ItemsController do
       response.should redirect_to(channel_items_url(@channel))
     end
   end
-
 end

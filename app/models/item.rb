@@ -29,10 +29,10 @@ class Item < ApplicationRecord
     self[:content] = v
   end
 
-  def as_json(options = {})
+  def as_json(_options = {})
     url = presigned_url
     attributes.merge(
-      presigned_url: url.to_s
+      presigned_url: url.to_s,
     )
   end
 
@@ -49,7 +49,7 @@ class Item < ApplicationRecord
     s3 = Aws::S3::Resource.new(
       region: content.fog_credentials[:region],
       access_key_id: content.fog_credentials[:aws_access_key_id],
-      secret_access_key: content.fog_credentials[:aws_secret_access_key]
+      secret_access_key: content.fog_credentials[:aws_secret_access_key],
     )
     obj = s3.bucket(content.fog_directory).object("#{content.store_dir}/#{self[:content]}")
     obj.presigned_url(:put)

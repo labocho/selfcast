@@ -2,11 +2,15 @@ require "rails_helper"
 
 describe "channels/new" do
   before(:each) do
-    assign(:channel, stub_model(Channel,
-      :title => "MyString",
-      :description => "MyText",
-      :image => "MyString"
-    ).as_new_record)
+    assign(
+      :channel,
+      stub_model(
+        Channel,
+        title: "MyString",
+        description: "MyText",
+        image: "MyString",
+      ).as_new_record,
+    )
   end
 
   it "renders new channel form" do
