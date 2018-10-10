@@ -1,46 +1,50 @@
 source "https://rubygems.org"
 ruby "2.5.1"
 
+# Core
+# ----------------------------------------
 gem "rails", "~> 5.2.0"
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+# Database
+# ----------------------------------------
 gem "pg", "< 1.0.0"
 
-# Gems used only for assets and not required
-# in production environments by default.
+# Deploy
+# ----------------------------------------
+gem "bootsnap"
+gem "thin"
+
+# Auth
+# ----------------------------------------
+gem "devise"
+
+# Assets
+# ----------------------------------------
 gem "coffee-rails"
+gem "jquery-rails"
+gem "less-rails"
+gem "mediaelement_rails"
+gem "rails_serve_static_assets", group: :production
 gem "sass-rails"
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem "therubyracer", platforms: :ruby
-
+gem "twitter-bootstrap-rails", git: "https://github.com/seyhunak/twitter-bootstrap-rails.git", branch: "bootstrap3"
 gem "uglifier"
 
-gem "jquery-rails"
-
-gem "less-rails"
-gem "twitter-bootstrap-rails", git: "https://github.com/seyhunak/twitter-bootstrap-rails.git", branch: "bootstrap3"
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
-
+# Views
+# ----------------------------------------
 gem "haml"
 gem "kaminari"
 gem "rails-i18n"
+
+# Model
+# ----------------------------------------
+gem "carrierwave"
+gem "fog-aws"
+
+# Debug
+# ----------------------------------------
+gem "exception_notification", "~> 2.6.1"
+gem "lograge"
 
 group :development do
   gem "rubocop"
@@ -63,15 +67,3 @@ group :development, :test do
   gem "simplecov-rcov", require: false
   gem "turnip"
 end
-
-gem "carrierwave"
-gem "devise"
-gem "fog-aws"
-gem "mail-iso-2022-jp"
-gem "thin"
-# gem "action_mailer_config", :git => "git://github.com/labocho/action_mailer_config.git"
-gem "bootsnap"
-gem "exception_notification", "~> 2.6.1"
-gem "lograge"
-gem "mediaelement_rails"
-gem "rails_serve_static_assets", group: :production

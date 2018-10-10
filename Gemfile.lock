@@ -178,8 +178,6 @@ GEM
     machinist (2.0)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
-    mail-iso-2022-jp (2.0.8)
-      mail (>= 2.2.6, <= 2.7.0)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     mediaelement_rails (0.8.2)
@@ -366,7 +364,6 @@ DEPENDENCIES
   less-rails
   lograge
   machinist
-  mail-iso-2022-jp
   mediaelement_rails
   pg (< 1.0.0)
   rails (~> 5.2.0)
