@@ -66,9 +66,8 @@ end
 
 gem "thin"
 gem "devise"
-gem "fog"
+gem "fog-aws"
 gem "carrierwave"
-gem "aws-sdk"
 gem "mail-iso-2022-jp"
 # gem "action_mailer_config", :git => "git://github.com/labocho/action_mailer_config.git"
 gem "exception_notification", "~> 2.6.1"
