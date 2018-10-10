@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.5.1"
 
-gem 'rails', '~> 5.1.0'
+gem 'rails', '~> 5.2.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -75,3 +75,4 @@ gem "exception_notification", "~> 2.6.1"
 gem "mediaelement_rails"
 gem "lograge"
 gem "rails_serve_static_assets", group: :production
+gem "bootsnap"
