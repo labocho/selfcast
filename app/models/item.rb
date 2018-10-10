@@ -1,4 +1,3 @@
-require "aws-sdk"
 class Item < ApplicationRecord
   RECENT = 100
 
