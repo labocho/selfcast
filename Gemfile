@@ -44,6 +44,7 @@ gem "fog-aws"
 # Debug
 # ----------------------------------------
 gem "exception_notification", "~> 2.6.1"
+gem "bugsnag", "~> 6.8"
 gem "lograge"
 
 group :development do
