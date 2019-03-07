@@ -92,6 +92,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def file
+    @item = Item.find(params[:item_id])
+
+    if stale?(@item)
+      redirect_to @item.content.url, status:302
+    end
+  end
+
   private
   def find_channel
     @channel = Channel.where(id: params[:channel_id]).first

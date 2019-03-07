@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :channels, except: [:show] do
     get "items/:id/download" => "items#download", as: "item_download"
-    resources :items
+    resources :items do
+      get :file
+    end
   end
   get "channels/:id/feed" => "channels#show", defaults: {format: "xml"}, as: "channel_feed"
   get "channels/:channel_id" => "items#index"

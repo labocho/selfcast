@@ -17,7 +17,11 @@ class ChannelsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml { render layout: false}
+      format.xml {
+        if stale?(last_modified: [@channel.updated_at, @channel.items.maximum(:updated_at)].max)
+          render layout: false
+        end
+      }
       format.json { render json: @channel }
     end
   end
