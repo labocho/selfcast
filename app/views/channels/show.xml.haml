@@ -16,7 +16,7 @@
         / - content_length = item.content.size rescue nil
         / - logger.error "#{item.title} (id: #{item.id}) has no content length" unless content_length
         / %enclosure{url: item.content.url, length: (item.content.size rescue nil), type: "audio/mpeg"}/
-        %enclosure{url: channel_item_file_url(@channel, item, auth_token: params[:auth_token].presence), type: "audio/mpeg"}/
+        %enclosure{url: item.content.url, type: "audio/mpeg"}/
         %guid= channel_item_url(@channel, item)
         %description
           :cdata
