@@ -26,6 +26,7 @@ gem "less-rails"
 gem "mediaelement_rails"
 gem "rails_serve_static_assets", group: :production
 gem "sass-rails"
+gem "sprockets", "< 4"
 gem "therubyracer", platforms: :ruby
 gem "twitter-bootstrap-rails", git: "https://github.com/seyhunak/twitter-bootstrap-rails.git", branch: "bootstrap3"
 gem "uglifier"
@@ -57,7 +58,6 @@ end
 
 group :development, :test do
   gem "byebug"
-  gem "capybara-webkit", "~> 1.15.1"
   gem "ci_reporter"
   gem "database_cleaner"
   gem "dotenv-rails"
